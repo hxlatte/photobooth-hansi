@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+
+<body onload="loadPhotos()">
+
+<div class="edit-layout">
+  <div class="edit-side">
+    <p class="sticker-title"><b>STICKERS</b></p>
+    <p class="sticker-hint">Drag to place!</p>
+
+    <div id="stickers">
+      <img class="sticker-btn" src="sticker1.png" draggable="true" ondragstart="dragStart(event,'sticker1.png')" onclick="selectSticker('sticker1.png')">
+      <img class="sticker-btn" src="sticker2.png" draggable="true" ondragstart="dragStart(event,'sticker2.png')" onclick="selectSticker('sticker2.png')">
+      <img class="sticker-btn" src="sticker3.png" draggable="true" ondragstart="dragStart(event,'sticker3.png')" onclick="selectSticker('sticker3.png')">
+      <img class="sticker-btn" src="sticker4.png" draggable="true" ondragstart="dragStart(event,'sticker4.png')" onclick="selectSticker('sticker4.png')">
+      <img class="sticker-btn" src="sticker5.png" draggable="true" ondragstart="dragStart(event,'sticker5.png')" onclick="selectSticker('sticker5.png')">
+      <img class="sticker-btn" src="sticker6.png" draggable="true" ondragstart="dragStart(event,'sticker6.png')" onclick="selectSticker('sticker6.png')">
+    </div>
+
+    <br>
+    <button class="buttonpink undo-btn" onclick="undoLastSticker()">↩ UNDO</button>
+  </div>
+  <div class="edit-center">
+    <div id="finalStrip" class="strip">
+
+      <div class="frame"
+           ondragover="event.preventDefault()"
+           ondrop="dropSticker(event,1)"
+           onclick="clickPlaceSticker(event,1)">
+        <img id="photo1" class="edit-photo">
+        <div class="sticker-layer" id="layer1"></div>
+      </div>
+
+      <div class="frame"
+           ondragover="event.preventDefault()"
+           ondrop="dropSticker(event,2)"
+           onclick="clickPlaceSticker(event,2)">
+        <img id="photo2" class="edit-photo">
+        <div class="sticker-layer" id="layer2"></div>
+      </div>
+
+      <div class="frame"
+           ondragover="event.preventDefault()"
+           ondrop="dropSticker(event,3)"
+           onclick="clickPlaceSticker(event,3)">
+        <img id="photo3" class="edit-photo">
+        <div class="sticker-layer" id="layer3"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="edit-side">
+    <button class="button-download" onclick="downloadStrip()">DOWNLOAD</button>
+    <br><br>
+    <button class="buttonpink" onclick="goHome()">HOME</button>
+  </div>
+
+</div>
+
+<img src="Group 6 (1).svg" alt="border" id="top">
+<img src="Group 6 (1).svg" alt="border" id="bottom">
+
+<script src="index.js"></script>
+</body>
+</html>

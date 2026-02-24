@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startHomeCamera()">
+
+<h1 class="title">HANSIKA'S PHOTOBOOTH</h1>
+
+<div class="previewBox">
+  <video id="homeCamera" autoplay muted></video>
+</div>
+<button id="capture" onclick="goCamera()">CAPTURE</button>
+<button class="buttonpink" onclick="openFilePicker()">UPLOAD</button>
+
+<input type="file" id="fileInput" accept="image/*" multiple hidden>
+<img src="Group 6 (1).svg" alt="border" id="top">
+<img src="Group 6 (1).svg" alt="border" id="bottom">
+ 
+ 
+<script src="index.js"></script>
+</body>
+</html>

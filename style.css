@@ -1,0 +1,313 @@
+@font-face {
+    font-family: SingleDay;
+    src: url("./fonts/SingleDay-Regular.ttf") format("truetype");
+}
+
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #eee;
+    margin: 0;
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+
+.previewBox {
+    width: 400px;
+    height: 250px;
+    border: 6px solid black;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.previewBox video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    display: block;
+    position: static;     
+}
+
+
+#top, #bottom {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 0;            /* behind page content */
+}
+#top    { top: 0;    height: 72px; object-fit: cover; }
+#bottom { bottom: 0; height: 72px; object-fit: cover; }
+
+
+h1 {
+    font-family: "SingleDay";
+    color: #FBACBF;
+}
+
+
+#capture {
+    width: 120px;
+    height: 45px;
+    background-color: #FBACBF;
+    color: black;
+    border: none;
+    border-radius: 550%;
+    font-size: 19px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: "SingleDay";
+}
+
+.buttonpink {
+    width: 120px;
+    height: 45px;
+    background-color: #FBACBF;
+    color: black;
+    border: none;
+    border-radius: 550%;
+    font-size: 19px;
+    cursor: pointer;
+    font-family: "SingleDay";
+}
+
+.buttonpink2 {
+    width: 120px;
+    height: 45px;
+    background-color: #FBACBF;
+    color: black;
+    border: none;
+    border-radius: 550%;
+    font-size: 19px;
+    cursor: pointer;
+    font-family: "SingleDay";
+    margin-top: 100px;
+}
+
+.button-download {
+    width: 120px;
+    height: 45px;
+    background-color: #FBACBF;
+    color: black;
+    border: none;
+    border-radius: 550%;
+    font-size: 19px;
+    cursor: pointer;
+    font-family: "SingleDay";
+    margin-top: 150px;
+}
+
+
+.layout3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+}
+
+.side {
+    padding: 20px 10px;
+}
+
+/* Timer buttons */
+.timer {
+    background-color: white;
+    font-size: 19px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    font-family: "SingleDay";
+    margin: 5px 5px 10px 2px;
+}
+
+/* Filter buttons are 2 column grid, no scroll */
+.filter-scroll {
+    display: grid;
+    grid-template-columns: repeat(2, 80px);
+    gap: 4px;
+    justify-content: center;
+}
+
+.filters {
+    background-color: white;
+    font-size: 18px;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    font-family: "SingleDay";
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+.filters.active-filter {
+    background-color: #FBACBF;
+    font-weight: bold;
+}
+
+
+.strip {
+    width: 220px;
+    background: black;
+    padding: 15px;
+    margin: auto;
+    position: relative;
+}
+
+/* Each photo slot */
+.frame {
+    width: 100%;
+    height: 140px;
+    background: #ddd;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    cursor: crosshair;
+}
+
+/* ── Video inside camera strip frame ── */
+.frame video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    display: block;
+    z-index: 1;
+}
+
+
+.frame img.preview-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    z-index: 2;
+}
+
+
+.frame img.edit-photo {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    transform: none;
+}
+
+
+#countdownBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 80px;
+    font-weight: bold;
+    z-index: 15;
+    pointer-events: none;
+}
+
+
+.sticker-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 30;
+    overflow: visible;
+}
+
+/* Individual placed sticker */
+.sticker-on-frame {
+    position: absolute;
+    width: 50px !important;
+    height: 50px !important;
+    max-width: unset !important;
+    max-height: unset !important;
+    object-fit: contain !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: all;
+    cursor: grab;
+    user-select: none;
+    z-index: 31;
+    display: block;
+}
+
+.sticker-on-frame:hover {
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+}
+
+
+.edit-layout {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    justify-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.edit-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.edit-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+.sticker-title {
+    font-family: "SingleDay";
+    font-size: 20px;
+    color: #FBACBF;
+    margin: 0 0 4px;
+}
+
+.sticker-hint {
+    font-family: "SingleDay";
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 10px;
+}
+
+#stickers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 0 auto 12px;
+}
+
+.sticker-btn {
+    width: 55px !important;
+    height: 55px !important;
+    object-fit: contain !important;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: grab;
+    transition: border-color 0.1s;
+    transform: none !important;
+    display: block;
+    position: static !important;  /* never absolute */
+}
+
+.sticker-btn:hover  { border-color: #FBACBF; }
+.sticker-btn.selected { border-color: #f888a8; background: #fde0e8; }
+
+.undo-btn {
+    width: 90px;
+    height: 38px;
+    font-size: 15px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startCamera()">
+
+<div class="layout3">
+  <div class="side">
+    <button class="buttonpink">TIMER</button>
+    <br><br>
+    <button class="timer" onclick="setTimer(3)">3s</button>
+    <button class="timer" onclick="setTimer(5)">5s</button>
+    <button class="timer" onclick="setTimer(10)">10s</button>
+    <br><br>
+    <button class="buttonpink">FILTERS</button>
+    <br><br>
+    <div class="filter-scroll">
+      <button class="filters active-filter" onclick="setFilter('none', this)">No Filter</button>
+      <button class="filters" onclick="setFilter('grayscale(1)', this)">B&W</button>
+      <button class="filters" onclick="setFilter('sepia(1)', this)">Vintage</button>
+      <button class="filters" onclick="setFilter('brightness(1.2) blur(1px)', this)">Soft</button>
+      <button class="filters" onclick="setFilter('saturate(2)', this)">Vivid</button>
+      <button class="filters" onclick="setFilter('contrast(1.4) saturate(0.8)', this)">Film</button>
+      <button class="filters" onclick="setFilter('hue-rotate(180deg) saturate(1.5)', this)">Dreamy</button>
+      <button class="filters" onclick="setFilter('brightness(0.8) contrast(1.2)', this)">Moody</button>
+    </div>
+  </div>
+  <div class="center">
+    <div class="strip">
+      <div id="countdownBox"></div>
+
+      <div class="frame" id="frame1">
+        <video id="video" autoplay></video>
+        <img id="preview1" class="preview-img">
+      </div>
+
+      <div class="frame" id="frame2">
+        <img id="preview2" class="preview-img">
+      </div>
+
+      <div class="frame" id="frame3">
+        <img id="preview3" class="preview-img">
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <button class="buttonpink2" onclick="startPhotobooth()">START</button>
+    <br><br>
+    <button class="buttonpink" onclick="goHome()">HOME</button>
+  </div>
+
+</div>
+
+<img src="Group 6 (1).svg" alt="border" id="top">
+<img src="Group 6 (1).svg" alt="border" id="bottom">
+
+<script src="index.js"></script>
+</body>
+</html>
