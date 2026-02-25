@@ -15,18 +15,18 @@ document.addEventListener("mouseup", function(){
   if(activeDrag){ activeDrag.sticker.style.cursor = "grab"; activeDrag = null; }
 });
 
-//NAVIGATION
+/* ── NAVIGATION ── */
 function goCamera(){ window.location = "camera.html"; }
 function goHome()  { window.location = "home.html"; }
 
-//HOME CAMERA 
+/* ── HOME CAMERA ── */
 function startHomeCamera(){
   const v = document.getElementById("homeCamera");
   if(!v) return;
   navigator.mediaDevices.getUserMedia({video:true}).then(s => v.srcObject = s);
 }
 
-//UPLOAD
+/* ── UPLOAD ── */
 function openFilePicker(){ document.getElementById("fileInput").click(); }
 
 const fileInput = document.getElementById("fileInput");
@@ -49,7 +49,7 @@ if(fileInput){
   });
 }
 
-//CAMERA 
+/* ── CAMERA ── */
 let video;
 let timer = 3;
 
@@ -70,7 +70,7 @@ function setFilter(filterValue, btn){
   if(btn) btn.classList.add("active-filter");
 }
 
-// PHOTOBOOTH 
+/* ── PHOTOBOOTH — 3 photos with live video in each frame ── */
 async function startPhotobooth(){
   if(!video){ alert("Camera not ready"); return; }
 
@@ -102,7 +102,7 @@ async function startPhotobooth(){
   setTimeout(() => window.location = "edit.html", 600);
 }
 
-// Move the video element into the given frame so live feed shows there during countdown
+/* Move the video element into the given frame so live feed shows there */
 function moveVideoToFrame(frameNum){
   const frame = document.getElementById("frame"+frameNum);
   if(!frame) return;
@@ -144,7 +144,8 @@ async function takeOnePhoto(id, frameNum){
   img.src = canvas.toDataURL();
   img.style.display = "block";
 }
-//countdown shown inside the frame 
+
+/* ── COUNTDOWN — shown inside correct frame ── */
 function showCountdown(frameNum){
   return new Promise(resolve => {
     // Move countdownBox into the active frame
@@ -166,7 +167,7 @@ function showCountdown(frameNum){
   });
 }
 
-//photo strripp one
+/* ── LOAD PHOTOS on edit page ── */
 function loadPhotos(){
   ["photo1","photo2","photo3"].forEach((id, i) => {
     const img = document.getElementById(id);
@@ -175,7 +176,7 @@ function loadPhotos(){
   });
 }
 
-//DOWNLOAD 
+/* ── DOWNLOAD ── */
 function downloadStrip(){
   const strip = document.getElementById("finalStrip");
   const stickers = strip.querySelectorAll(".sticker-on-frame");
@@ -198,8 +199,9 @@ function downloadStrip(){
   });
 
   Promise.all(promises).then(() => {
+    const scale = window.devicePixelRatio || 1;
     html2canvas(strip, {
-      scale: 2, useCORS: true, allowTaint: true, backgroundColor: "#000000"
+      scale: scale, useCORS: true, allowTaint: true, backgroundColor: "#000000"
     }).then(canvas => {
       const a = document.createElement("a");
       a.download = "photobooth.png";
@@ -209,7 +211,9 @@ function downloadStrip(){
   });
 }
 
-//stickers
+/* ══════════════════════════════
+   STICKER SYSTEM
+══════════════════════════════ */
 function selectSticker(src){
   selectedSticker = src;
   document.querySelectorAll(".sticker-btn").forEach(b => {
