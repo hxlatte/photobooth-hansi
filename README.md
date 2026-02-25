@@ -4,6 +4,7 @@ This project focuses on JavaScript logic, webcam API usage, canvas manipulation,
 
 ---
 
+
 ## Introduction 
 This is a cute and interactive photobooth web app inspired by real-life photo strip booths.  
 The goal of this project was to practice:
@@ -24,7 +25,28 @@ The goal of this project was to practice:
 - **html2canvas** – Rendering the final photo strip with stickers as a downloadable image  
 
 ---
+## Project Preview
 
+### Home Page
+![Home Page](images/home.png)
+
+### Camera Capture
+![Camera Page](images/camera.png)
+
+### Edit & Stickers
+![Edit Page](images/edit.png)
+---
+
+## UI Design
+
+The interface of this photobooth application was first designed in **Figma** to plan layout, colors, and user experience before development.
+
+Design focus:
+- Cute photobooth aesthetic
+- Clean & playful layout
+- Easy navigation
+- Sticker-friendly editing space
+---
 ## Features 
 - Live webcam preview on the home page  
 - 3-photo strip capture with countdown timer (3s / 5s / 10s)  
